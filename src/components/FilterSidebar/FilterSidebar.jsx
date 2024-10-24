@@ -1,3 +1,4 @@
+// src\components\FilterSidebar\FilterSidebar.jsx
 import { useState } from 'react';
 import styles from './FilterSidebar.module.css';
 

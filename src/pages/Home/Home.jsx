@@ -1,3 +1,4 @@
+// src\pages\Home\Home.jsx
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css"; // Імпорт CSS-файлу
 import Header from "../../components/Header/Header";

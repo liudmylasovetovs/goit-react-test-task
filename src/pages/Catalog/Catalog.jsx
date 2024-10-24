@@ -1,3 +1,4 @@
+// src\pages\Catalog\Catalog.jsx
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCampers, setFilters, loadMore } from '../../store/campersSlice.js';

@@ -1,3 +1,4 @@
+// src\App.jsx
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
@@ -9,9 +10,9 @@ const App = () => {
   return (
     <Routes>
       <Suspense fallback={<div>Loading...</div>}>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/catalog" component={Catalog} />
-        <Route path="/catalog/:id" component={Camper} />
+        <Route exact path="/" element={Home} />
+        <Route exact path="/catalog" element={Catalog} />
+        <Route path="/catalog/:id" element={Camper} />
       </Suspense>
     </Routes>
   );

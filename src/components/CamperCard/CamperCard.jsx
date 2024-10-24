@@ -1,4 +1,4 @@
-
+// src\components\CamperCard
 import styles from './CamperCard.module.css';
 
 const CamperCard = ({ camper }) => {

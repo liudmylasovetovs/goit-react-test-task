@@ -1,3 +1,4 @@
+// src\components\Header\Header.jsx
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css'; // Імпорт CSS-файлу
 

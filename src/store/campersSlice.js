@@ -1,3 +1,4 @@
+// src\store\campersSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -38,7 +39,7 @@ export const campersSlice = createSlice({
   },
   reducers: {
     loadMore: (state) => {
-      state.page = +1;
+      state.page =+ 1;
     },
 
     setFilters: (state, action) => {

@@ -1,3 +1,4 @@
+// src\components\Loader\Loader.jsx
 import { FidgetSpinner } from "react-loader-spinner"; 
 import styles from "./Loader.module.css";
 
