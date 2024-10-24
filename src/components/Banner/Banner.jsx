@@ -1,4 +1,4 @@
-import styles from "./Banner.css"; 
+import styles from "./Banner.module.css"; 
 
 const Banner = () => {
 
