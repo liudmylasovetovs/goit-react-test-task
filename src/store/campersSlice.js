@@ -75,4 +75,4 @@ export const campersSlice = createSlice({
 });
 
 export default campersSlice.reducer;
-export const { loadMore } = campersSlice.actions;
+export const { loadMore, setFilters } = campersSlice.actions;
