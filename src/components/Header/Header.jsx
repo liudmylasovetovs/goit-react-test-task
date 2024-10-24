@@ -4,21 +4,21 @@ import styles from './Header.module.css'; // Імпорт CSS-файлу
 
 const Header = () => {
   return (
-    <header>
-      <NavLink to="/" className="logo">
-        <span className={styles.word1}>Travel</span>
+    <header className={styles.header}>
+      <NavLink to="/" className={styles.logo}>
+        Travel
         <span className={styles.word2}>Truck</span>
       </NavLink>
-      <nav>
+      <nav className={styles.navlink}>
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? 'active' : '')} // Використання isActive
+          className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`} // Використання isActive
         >
           Home
         </NavLink>
         <NavLink
           to="/catalog"
-          className={({ isActive }) => (isActive ? 'active' : '')} // Використання isActive
+          className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`} // Використання isActive
         >
           Catalog
         </NavLink>

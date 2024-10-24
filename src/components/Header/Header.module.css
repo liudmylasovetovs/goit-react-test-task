@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 64px;
+    background-color: #F7F7F7;
+    border-bottom: 1px solid #E2E2E2;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #101828;
+    text-decoration: none;
+    flex: 1;
+}
+
+.word2 {
+    font-weight: 400;
+    color: #475467;
+}
+
+.navlink {
+    display: flex;
+    gap: 32px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #101828;
+    text-decoration: none;
+}
+
+.active {
+    color: #E44848;
+}
