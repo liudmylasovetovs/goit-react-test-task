@@ -16,58 +16,62 @@ export const fetchCampers = createAsyncThunk(
 );
 
 export const fetchCamperDetails = createAsyncThunk(
-    "campers/fetchCamperDetails",
-    async (id, thunkAPI) => {
-        try {
-        const response = await axios.get(`${API_URL}/${id}`);
-        return response.data;
-        } catch (error) {
-        return thunkAPI.rejectWithValue(error);
-        }
+  "campers/fetchCamperDetails",
+  async (id, thunkAPI) => {
+    try {
+      const response = await axios.get(`${API_URL}/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
     }
-    );
+  }
+);
 
 const campersSlice = createSlice({
-    name: "campers",
-    initialState: {
-        campers: [],
-        selectedCamper: null,
-        status: "idle",
-        error: null,
-        page: 1,
+  name: "campers",
+  initialState: {
+    campers: [],
+    selectedCamper: null,
+    status: "idle",
+    error: null,
+    page: 1,
+  },
+  reducers: {
+    loadMore: (state) => {
+      state.page = +1;
     },
-    reducers: {
-        loadMore: (state) => {
-        state.page =+ 1;
-        }
+
+    setFilters: (state, action) => {
+      state.filters = action.payload;
     },
-    extraReducers: (builder) => {
-        builder
-            .addCase(fetchCampers.pending, (state) => {
-                state.status = "loading";
-                state.error = null; // Скидаємо попередні помилки при новому запиті
-            })
-            .addCase(fetchCampers.fulfilled, (state, action) => {
-                state.status = "succeeded";
-                state.campers = state.campers.concat(action.payload); // Додаємо нові кемпери
-            })
-            .addCase(fetchCampers.rejected, (state, action) => {
-                state.status = "failed";
-                state.error = action.payload; // Зберігаємо повідомлення про помилку
-            })
-            .addCase(fetchCamperDetails.pending, (state) => {
-                state.status = "loading";
-                state.error = null; // Скидаємо попередні помилки при новому запиті
-            })
-            .addCase(fetchCamperDetails.fulfilled, (state, action) => {
-                state.status = "succeeded";
-                state.selectedCamper = action.payload; // Зберігаємо деталі обраного кемпера
-            })
-            .addCase(fetchCamperDetails.rejected, (state, action) => {
-                state.status = "failed";
-                state.error = action.payload; // Зберігаємо повідомлення про помилку
-            });
-    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchCampers.pending, (state) => {
+        state.status = "loading";
+        state.error = null; // Скидаємо попередні помилки при новому запиті
+      })
+      .addCase(fetchCampers.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.campers = state.campers.concat(action.payload); // Додаємо нові кемпери
+      })
+      .addCase(fetchCampers.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload; // Зберігаємо повідомлення про помилку
+      })
+      .addCase(fetchCamperDetails.pending, (state) => {
+        state.status = "loading";
+        state.error = null; // Скидаємо попередні помилки при новому запиті
+      })
+      .addCase(fetchCamperDetails.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.selectedCamper = action.payload; // Зберігаємо деталі обраного кемпера
+      })
+      .addCase(fetchCamperDetails.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload; // Зберігаємо повідомлення про помилку
+      });
+  },
 });
 
 export default campersSlice.reducer;
