@@ -27,7 +27,7 @@ export const fetchCamperDetails = createAsyncThunk(
   }
 );
 
-const campersSlice = createSlice({
+export const campersSlice = createSlice({
   name: "campers",
   initialState: {
     campers: [],
