@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import Reviews from '../../components/Reviews/';
+import Reviews from '../../components/Reviews/Reviews';
 import BookingForm from '../../components/BookingForm/BookingForm';
 import Loader from '../../components/Loader/Loader';
 import Features from '../../components/Features/Features';
