@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "./Header.module.css"; // Імпорт CSS-файлу
+import styles from "./Home.module.css"; // Імпорт CSS-файлу
 import Header from "../../components/Header/Header";
 import Banner from "../../components/Banner/Banner";
 
