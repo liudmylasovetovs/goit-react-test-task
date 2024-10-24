@@ -1,5 +1,5 @@
 import styles from './Features.module.css';
-import { FaCar, FaSnowflake, FaGasPump, FaUtensils, FaRadio } from 'react-icons/fa';
+import { FaCar, FaSnowflake, FaGasPump, FaUtensils, FaMusic } from 'react-icons/fa';
 
 const Features = () => (
   <div className={styles.features}>
@@ -20,11 +20,12 @@ const Features = () => (
       <span>Kitchen</span>
     </div>
     <div className={styles.featureItem}>
-      <FaRadio className={styles.icon} />
+      <FaMusic className={styles.icon} />
       <span>Radio</span>
     </div>
   </div>
 );
 
 export default Features;
+
 
