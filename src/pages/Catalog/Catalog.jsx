@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCampers, setFilters, loadMore } from '../store/campersSlice';
-import CamperCard from '../components/CamperCard';
-import FilterSidebar from '../components/FilterSidebar';
-import Navbar from '../components/Navbar';
-import Loader from '../components/Loader';
-import styles from './CatalogPage.module.css';
+import { fetchCampers, setFilters, loadMore } from '../../store/campersSlice';
+import CamperCard from '../../components/CamperCard';
+import FilterSidebar from '../../components/FilterSidebar';
+import Header from '../../components/Header';
+import Loader from '../../components/Loader';
+import styles from './Catalog.module.css';
 
 const Catalog = () => {
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Catalog = () => {
 
     return (
         <div>
-            <Navbar />
+            <Header />
             <div className={styles.catalog}>
                 <FilterSidebar onFilter={handleFilterChange} />
                 <div className={styles.camperList}>
