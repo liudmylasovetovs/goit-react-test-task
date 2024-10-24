@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import Reviews from '../../components/Reviews';
-import BookingForm from '../../components/BookingForm';
-import Loader from '../../components/Loader';
-import Features from '../../components/Features';
+import Reviews from '../../components/Reviews/';
+import BookingForm from '../../components/BookingForm/BookingForm';
+import Loader from '../../components/Loader/Loader';
+import Features from '../../components/Features/Features';
 import styles from './Camper.module.css';
 
 const Camper = () => {
