@@ -1,0 +1,36 @@
+
+
+.gallery {
+    display: flex;
+    gap: 1rem;
+}
+
+.gallery img {
+    width: 100px;
+    height: auto;
+}
+
+.tabs {
+    display: flex;
+    gap: 1rem;
+}
+
+.tabs button {
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    background: #ddd;
+}
+
+.tabs .active {
+    background: #bbb;
+}
+
+.features,
+.reviews {
+    margin-top: 1rem;
+}
+
+form {
+    margin-top: 2rem;
+}

@@ -1,0 +1,32 @@
+.filterSidebar {
+    width: 250px;
+}
+
+.filterSidebar h3 {
+    margin-bottom: 20px;
+}
+
+.filterSidebar h4 {
+    margin-bottom: 10px;
+}
+
+.filterSidebar button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.searchButton {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.locationInput {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

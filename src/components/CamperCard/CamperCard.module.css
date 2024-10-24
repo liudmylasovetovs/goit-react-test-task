@@ -1,0 +1,33 @@
+.camperCard {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.camperInfo {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.camperInfo h3 {
+    margin-top: 0;
+}
+
+.camperFeatures span {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #eee;
+    padding: 5px;
+}
+
+.showMoreButton {
+    display: block;
+    margin-top: 20px;
+}
+
+.camperPrice {
+    font-size: 24px;
+    color: red;
+    align-self: center;
+}

@@ -5,24 +5,24 @@ const API_URL = "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers";
 
 export const fetchCampers = createAsyncThunk(
   "campers/fetchCampers",
-  async (page, thankAPI) => {
+  async (page, thunkAPI) => {
     try {
       const response = await axios.get(`${API_URL}?page=${page}&limit=4`);
       return response.data.items;
     } catch (error) {
-      return thankAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );
 
 export const fetchCamperDetails = createAsyncThunk(
     "campers/fetchCamperDetails",
-    async (id, thankAPI) => {
+    async (id, thunkAPI) => {
         try {
         const response = await axios.get(`${API_URL}/${id}`);
         return response.data;
         } catch (error) {
-        return thankAPI.rejectWithValue(error);
+        return thunkAPI.rejectWithValue(error);
         }
     }
     );

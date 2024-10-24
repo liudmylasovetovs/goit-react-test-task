@@ -1,0 +1,18 @@
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.icon {
+    margin-right: 5px;
+    color: #ff5733;
+}

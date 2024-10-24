@@ -1,0 +1,16 @@
+.catalog {
+    display: flex;
+    padding: 20px;
+}
+
+.camperList {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.loadMoreButton {
+    align-self: center;
+    margin-top: 20px;
+}
