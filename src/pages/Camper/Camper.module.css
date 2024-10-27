@@ -13,6 +13,7 @@
 .tabs {
     display: flex;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 .tabs button {
@@ -20,10 +21,18 @@
     border: none;
     cursor: pointer;
     background: #ddd;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.tabs button:hover {
+    background: #bbb;
 }
 
 .tabs .active {
-    background: #bbb;
+    background: #ff6b6b;
+    /* Change to your preferred active color */
+    color: white;
 }
 
 .features,

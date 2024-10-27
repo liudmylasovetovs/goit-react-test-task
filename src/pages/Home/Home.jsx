@@ -1,23 +1,23 @@
 // src\pages\Home\Home.jsx
 
-
 import { Link } from "react-router-dom";
+
 import styles from "./Home.module.css";
+// import hero from "../../assets/images/hero.jpg";
 
 const Home = () => {
   return (
-    <div>
-      <div className={styles.banner}>
-      <div className={styles.overlay}></div>
-        <div className={styles.content}>
-          <h1 className={styles.hero1}>Campers of your dreams</h1>
-          <h2 className={styles.hero2}>
+    <div className={styles.container}>
+      <div className={styles.hero}>
+        
+          <h1 className={styles.heroTitle}>Campers of your dreams</h1>
+          <p className={styles.title}>
             You can find everything you want in our catalog
-          </h2>
+          </p>
           <Link to="/catalog">
             <button className={styles.heroButton}>View Now</button>
           </Link>
-        </div>
+        
       </div>
     </div>
   );

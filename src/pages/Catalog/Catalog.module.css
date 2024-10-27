@@ -1,33 +1,55 @@
-.catalog {
+
+.catalogContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+   
+    gap: 20px;
     padding: 20px;
-}
-
-.content {
-    display: flex;
-    width: 100%;
     max-width: 1200px;
-    margin-top: 20px;
+    margin: 0 auto;
 }
 
-.filterSidebar {
-    width: 250px;
-    margin-right: 20px;
+
+.sidebar {
+    /* flex: 0 0 250px; */
+    
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .camperList {
     flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 }
 
+/* Оформлення кнопки для завантаження більшої кількості елементів */
 .loadMoreButton {
-    background-color: #ff4b5c;
-    color: white;
-    border: none;
+    display: block;
+    margin: 20px auto;
     padding: 10px 20px;
-    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+
+.loadMoreButton:hover {
+    background-color: #0056b3;
+}
+
+/* Стиль повідомлення про помилку */
+.errorMessage {
+    text-align: center;
+    font-size: 16px;
+    color:#E44848;
+    margin: 20px;
 }

@@ -1,24 +1,25 @@
 // src\components\Header\Header.jsx
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styles from './Header.module.css'; // Імпорт CSS-файлу
+import logo from '../../assets/logo.svg'; // Імпорт картинки
+import clsx from 'clsx';
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <NavLink to="/" className={styles.logo}>
-        Travel
-        <span className={styles.word2}>Truck</span>
-      </NavLink>
+      <Link className={styles.logo} to="/" >
+        <img src={logo} alt="logo" />
+      </Link>
       <nav className={styles.navlink}>
         <NavLink
           to="/"
-          className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`} // Використання isActive
+          className={({ isActive }) => clsx(styles.link, isActive && styles.active)} // Використання isActive
         >
           Home
         </NavLink>
         <NavLink
           to="/catalog"
-          className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`} // Використання isActive
+          className={({ isActive }) => clsx(styles.link, isActive && styles.active)} // Використання isActive
         >
           Catalog
         </NavLink>

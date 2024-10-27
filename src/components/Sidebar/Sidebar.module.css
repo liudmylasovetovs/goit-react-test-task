@@ -1,0 +1,87 @@
+.sidebar {
+  width: 100%;
+  /* Забезпечує повну ширину контейнера Sidebar */
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.location {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #333;
+}
+.input {
+  width: 100%;
+  /* Встановлює ширину вхідного поля на 100% контейнера */
+  padding: 10px;
+  padding-left: 35px;
+  /* Залишає місце для іконки */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.icon {
+  position: absolute;
+  left: 10px;
+  color: #888;
+}
+.equipmentOptions,
+.vehicleTypes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 60px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: white;
+  font-size: 0.9em;
+  color: #333;
+  text-align: center;
+}
+
+.label input[type="checkbox"],
+.label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.label input[type="checkbox"]:checked + .labelText,
+.label input[type="radio"]:checked + .labelText {
+  border-radius: 12px;
+  border: 1px solid #dadde1;
+  
+}
+
+.labelText {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.searchButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #e44848;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.searchButton:hover {
+  background-color: #d81b60;
+}

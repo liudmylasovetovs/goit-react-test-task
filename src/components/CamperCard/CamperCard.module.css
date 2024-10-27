@@ -1,33 +1,42 @@
 .camperCard {
-    display: flex;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     padding: 20px;
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.camperInfo {
-    flex: 1;
-    margin-left: 20px;
+.image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
 
-.camperInfo h3 {
-    margin-top: 0;
+.details {
+    text-align: center;
 }
 
-.camperFeatures span {
-    display: inline-block;
-    margin-right: 10px;
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.feature {
+    margin: 5px;
     background-color: #eee;
-    padding: 5px;
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
-.showMoreButton {
-    display: block;
-    margin-top: 20px;
-}
-
-.camperPrice {
-    font-size: 24px;
-    color: red;
-    align-self: center;
+.button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
 }
