@@ -1,55 +1,46 @@
-
 .catalogContainer {
     display: flex;
-    align-items: flex-start;
-   
     gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
-}
-
-
-.sidebar {
-    /* flex: 0 0 250px; */
-    
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+    padding: 64px 48px 64px 52px;
 }
 
 .camperList {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 20px;
+    flex-grow: 1;
 }
 
-/* Оформлення кнопки для завантаження більшої кількості елементів */
 .loadMoreButton {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
+    padding: 10px 24px;
+    background-color: var(--white);
+    color: var(--gray-blue);
+    border: 1px solid var(--light-gray);
+    border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    margin-top: 20px;
+    align-self: center;
 }
 
 .loadMoreButton:hover {
-    background-color: #0056b3;
+    border-color: var(--red);
+    background-color: var(--white);
 }
 
-/* Стиль повідомлення про помилку */
 .errorMessage {
-    text-align: center;
+    color: var(--red);
     font-size: 16px;
-    color:#E44848;
-    margin: 20px;
+    text-align: center;
+}
+
+.noResults {
+    color: var(--gray-blue);
+    font-size: 16px;
+    text-align: center;
 }

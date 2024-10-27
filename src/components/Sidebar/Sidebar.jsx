@@ -1,86 +1,40 @@
-import { useSelector, useDispatch } from "react-redux";
-import {
-  setLocation,
-  setAC,
-  setAutomatic,
-  setKitchen,
-  setTV,
-  setBathroom,
-  setVehicleType,
-} from "../../store/filterSlice";
-import { fetchFilteredCampers } from "../../store/campersSlice";
-import {
-  BsMap,
-  BsWind,
-  BsDiagram3,
-  BsCupHot,
-  BsTv,
-  BsDroplet,
-  BsGrid1X2,
-  BsGrid,
-  BsGrid3X3Gap,
-} from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { BsMap, BsWind, BsDiagram3, BsCupHot, BsTv, BsDroplet, BsGrid1X2, BsGrid, BsGrid3X3Gap } from "react-icons/bs";
 import styles from "./Sidebar.module.css";
+import { useState } from "react";
 
-const Sidebar = ({ onFilterChange }) => {
-  const dispatch = useDispatch();
+const Sidebar = ({ onSearch }) => {
   const filters = useSelector((state) => state.filters);
-
-  const handleSearch = () => {
-    dispatch(fetchFilteredCampers(filters)); // Запуск фільтрованого запиту
-  };
-
-   const handleSubmit = (e) => {
-    e.preventDefault(); // Запобігти перезавантаженню
-    handleSearch(); // Запустити пошук
-  };
-
+  const [selectedFilters, setSelectedFilters] = useState(filters);
 
   const handleLocationChange = (e) => {
-    dispatch(setLocation(e.target.value));
-    onFilterChange({ ...filters, location: e.target.value }); // Notify parent about filter change
+    setSelectedFilters({ ...selectedFilters, location: e.target.value });
   };
 
   const handleEquipmentChange = (name) => {
-    switch (name) {
-      case "AC":
-        dispatch(setAC(!filters.AC));
-        onFilterChange({ ...filters, AC: !filters.AC }); // Notify parent
-        break;
-      case "Automatic":
-        dispatch(setAutomatic(!filters.Automatic));
-        onFilterChange({ ...filters, Automatic: !filters.Automatic }); // Notify parent
-        break;
-      case "Kitchen":
-        dispatch(setKitchen(!filters.Kitchen));
-        onFilterChange({ ...filters, Kitchen: !filters.Kitchen }); // Notify parent
-        break;
-      case "TV":
-        dispatch(setTV(!filters.TV));
-        onFilterChange({ ...filters, TV: !filters.TV }); // Notify parent
-        break;
-      case "Bathroom":
-        dispatch(setBathroom(!filters.Bathroom));
-        onFilterChange({ ...filters, Bathroom: !filters.Bathroom }); // Notify parent
-        break;
-      default:
-        break;
-    }
+    setSelectedFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: !prevFilters[name],
+    }));
   };
 
   const handleVehicleTypeChange = (name) => {
-    dispatch(setVehicleType(name));
-    onFilterChange({ ...filters, vehicleType: name }); // Notify parent
+    setSelectedFilters({ ...selectedFilters, vehicleType: name });
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    onSearch(selectedFilters);
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.sidebar}>
+    <form onSubmit={handleSearch} className={styles.sidebar}>
       <h3 className={styles.location}>Location</h3>
       <div className={styles.inputContainer}>
         <BsMap className={styles.icon} />
         <input
           type="text"
-          value={filters.location}
+          value={selectedFilters.location || ""}
           onChange={handleLocationChange}
           placeholder="Enter location"
           className={styles.input}
@@ -96,10 +50,15 @@ const Sidebar = ({ onFilterChange }) => {
           { name: "TV", icon: <BsTv /> },
           { name: "Bathroom", icon: <BsDroplet /> },
         ].map(({ name, icon }) => (
-          <label key={name} className={styles.label}>
+          <label
+            key={name}
+            className={`${styles.label} ${
+              selectedFilters[name] ? styles.selected : ""
+            }`}
+          >
             <input
               type="checkbox"
-              checked={filters[name]}
+              checked={!!selectedFilters[name]}
               onChange={() => handleEquipmentChange(name)}
             />
             <span className={styles.labelText}>
@@ -116,10 +75,15 @@ const Sidebar = ({ onFilterChange }) => {
           { name: "Fully Integrated", icon: <BsGrid /> },
           { name: "Alcove", icon: <BsGrid3X3Gap /> },
         ].map(({ name, icon }) => (
-          <label key={name} className={styles.label}>
+          <label
+            key={name}
+            className={`${styles.label} ${
+              selectedFilters.vehicleType === name ? styles.selected : ""
+            }`}
+          >
             <input
               type="radio"
-              checked={filters.vehicleType === name}
+              checked={selectedFilters.vehicleType === name}
               onChange={() => handleVehicleTypeChange(name)}
             />
             <span className={styles.labelText}>
@@ -128,11 +92,8 @@ const Sidebar = ({ onFilterChange }) => {
           </label>
         ))}
       </div>
-      <button
-        type="submit"
-        className={styles.searchButton}
-        onClick={handleSearch}
-      >
+
+      <button type="submit" className={styles.searchButton}>
         Search
       </button>
     </form>

@@ -1,5 +1,5 @@
 
-import styles from './Reviews.module.css'; // Import your CSS module for styling
+import styles from './Reviews.module.css'; 
 
 const Reviews = ({ reviewerName, reviewerRating, comment }) => {
   return (

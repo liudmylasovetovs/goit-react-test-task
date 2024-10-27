@@ -11,12 +11,11 @@ const Camper = () => {
   const { id } = useParams();
   const [camper, setCamper] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('features'); // State for active tab
+  const [activeTab, setActiveTab] = useState('features');
 
   useEffect(() => {
     const fetchCamper = async () => {
       if (!id) {
-        console.error('Camper ID is undefined.');
         return;
       }
       try {
@@ -41,61 +40,70 @@ const Camper = () => {
   }
 
   return (
-    <div className={styles.camperHeader}>
-      <h1>{camper.name}</h1>
-      <p>{camper.location}</p>
-      <p>€{camper.price.toFixed(2).replace('.', ',')}</p>
+    <div className={styles.camperContainer}>
+      <div className={styles.header}>
+        <h1 className={styles.camperName}>{camper.name}</h1>
+        <div className={styles.camperDetails}>
+          <span className={styles.reviews}>
+            {camper.rating} ({camper.reviews.length} Reviews)
+          </span>
+          <span>{camper.location}</span>
+        </div>
+        <p className={styles.price}>€{camper.price.toFixed(2).replace('.', ',')}</p>
+      </div>
+
       <div className={styles.gallery}>
         {camper.gallery && camper.gallery.length > 0 ? (
           camper.gallery.map((image, index) => (
-            <img key={index} src={image.original} alt={`${camper.name} image ${index + 1}`} />
+            <img key={index} src={image.original} alt={`${camper.name} image ${index + 1}`} className={styles.image} />
           ))
         ) : (
           <p>No images available.</p>
         )}
       </div>
-      <p>{camper.description}</p>
 
-      {/* Tabs for Features and Reviews */}
+      <p className={styles.description}>{camper.description}</p>
+
       <div className={styles.tabs}>
         <button
-          className={activeTab === 'features' ? styles.active : ''}
+          className={`${styles.tabButton} ${activeTab === 'features' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('features')}
         >
           Features
         </button>
         <button
-          className={activeTab === 'reviews' ? styles.active : ''}
+          className={`${styles.tabButton} ${activeTab === 'reviews' ? styles.activeTab : ''}`}
           onClick={() => setActiveTab('reviews')}
         >
           Reviews
         </button>
       </div>
 
-{/* Render Features or Reviews based on active tab */}
-{activeTab === 'features' ? (
-  <div className={styles.features}>
-    <Features camper={camper} />
-  </div>
-) : (
-  <div className={styles.features}> {/* Change class to features for consistent alignment */}
-    <h2>Reviews</h2>
-    {camper.reviews && camper.reviews.length > 0 ? (
-      camper.reviews.map((review, index) => (
-        <Reviews
-          key={index}
-          reviewerName={review.reviewer_name}
-          reviewerRating={review.reviewer_rating}
-          comment={review.comment}
-        />
-      ))
-    ) : (
-      <p>No reviews available.</p>
-    )}
-  </div>
-)}
+      {activeTab === 'features' ? (
+        <div className={styles.features}>
+          <Features camper={camper} />
+        </div>
+      ) : (
+        <div className={styles.features}>
+          <h2>Reviews</h2>
+          {camper.reviews && camper.reviews.length > 0 ? (
+            camper.reviews.map((review, index) => (
+              <Reviews
+                key={index}
+                reviewerName={review.reviewer_name}
+                reviewerRating={review.reviewer_rating}
+                comment={review.comment}
+              />
+            ))
+          ) : (
+            <p>No reviews available.</p>
+          )}
+        </div>
+      )}
 
-      <BookingForm camperId={id} />
+      <div className={styles.bookingForm}>
+        <BookingForm camperId={id} />
+      </div>
     </div>
   );
 };

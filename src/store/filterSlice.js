@@ -1,4 +1,3 @@
-// In your slice file
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -16,7 +15,7 @@ const filtersSlice = createSlice({
   initialState,
   reducers: {
     setLocation(state, action) {
-      state.location = action.payload; // Update the location in the state
+      state.location = action.payload;
     },
     setAC(state, action) {
       state.AC = action.payload;

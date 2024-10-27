@@ -1,4 +1,3 @@
-// src\components\BookingForm\BookingForm.jsx
 import { useState } from 'react';
 import styles from './BookingForm.module.css';
 
@@ -10,7 +9,6 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle booking logic
     alert('Booking successful!');
   };
 

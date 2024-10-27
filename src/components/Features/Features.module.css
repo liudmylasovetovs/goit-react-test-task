@@ -1,18 +1,60 @@
+.featuresContainer {
+    background-color: var(--extra-light-gray);
+    padding: 20px;
+    border-radius: 12px;
+}
+
 .features {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
-.featureItem {
+.feature {
     display: flex;
     align-items: center;
-    padding: 5px 10px;
-    background-color: #f5f5f5;
-    border-radius: 5px;
+    gap: 8px;
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: var(--gray-blue);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-.icon {
-    margin-right: 5px;
-    color: #ff5733;
+.vehicleDetails {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.vehicleDetails h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--gray-blue);
+}
+
+.vehicleDetails ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detailItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 14px;
+    color: var(--gray-blue);
+}
+
+.detailItem span:first-child {
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+.detailItem span:last-child {
+    color: var(--gray-blue);
 }

@@ -1,35 +1,38 @@
-// src/components/CamperCard/CamperCard.jsx
 import styles from "./CamperCard.module.css";
 import { NavLink } from "react-router-dom";
+import { BsWind, BsCupHot, BsTv, BsDroplet, BsMap } from "react-icons/bs";
+import { BsGearFill, BsFuelPump, BsBroadcastPin } from 'react-icons/bs';
+
 const CamperCard = ({ camper }) => {
-  // Make sure to define features based on your camper object structure
   const features = [
-    `🛠 Transmission: ${camper.transmission}`,
-    `🛢 Fuel: ${camper.engine}`,
-    `❄️ AC: ${camper.AC ? "Yes" : "No"}`,
-    `🚽 Bathroom: ${camper.bathroom ? "Yes" : "No"}`,
-    `🍽 Kitchen: ${camper.kitchen ? "Yes" : "No"}`,
-    `📺 TV: ${camper.TV ? "Yes" : "No"}`,
-  ];
+    camper.transmission === "automatic" && { name: "Automatic", icon: <BsGearFill /> },
+    camper.AC && { name: "AC", icon: <BsWind /> },
+    camper.engine === "petrol" && { name: "Petrol", icon: <BsFuelPump /> },
+    camper.kitchen && { name: "Kitchen", icon: <BsCupHot /> },
+    camper.radio && { name: "Radio", icon: <BsBroadcastPin /> },
+    camper.bathroom && { name: "Bathroom", icon: <BsDroplet /> },
+    camper.TV && { name: "TV", icon: <BsTv /> }
+  ].filter(Boolean);
 
   return (
     <div className={styles.camperCard}>
       {camper.gallery && camper.gallery.length > 0 && (
         <img
-          src={camper.gallery[0].thumb} // Use thumbnail for a smaller image
+          src={camper.gallery[0].thumb}
           alt={camper.name}
           className={styles.image}
         />
       )}
       <div className={styles.details}>
         <h3>{camper.name}</h3>
-        <p>{camper.location}</p>
+        <p><BsMap /> {camper.location}</p>
         <p>€{camper.price}</p>
         <div className={styles.features}>
           {features.map((feature, index) => (
-            <span key={index} className={styles.feature}>
-              {feature}
-            </span>
+            <div key={index} className={styles.feature}>
+              {feature.icon}
+              <span>{feature.name}</span>
+            </div>
           ))}
         </div>
         <NavLink to={`/catalog/${camper.id}`} className={styles.button}>

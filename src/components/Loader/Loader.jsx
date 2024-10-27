@@ -1,4 +1,4 @@
-// src\components\Loader\Loader.jsx
+
 
 import styles from "./Loader.module.css";
 

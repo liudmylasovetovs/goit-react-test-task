@@ -1,87 +1,101 @@
 .sidebar {
-  width: 100%;
-  /* Забезпечує повну ширину контейнера Sidebar */
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 400px;
+}
+
+.location,
+.heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark-blue);
+  margin-bottom: 10px;
 }
 
 .inputContainer {
-  position: relative;
   display: flex;
   align-items: center;
-}
-.location {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-  color: #333;
-}
-.input {
-  width: 100%;
-  /* Встановлює ширину вхідного поля на 100% контейнера */
-  padding: 10px;
-  padding-left: 35px;
-  /* Залишає місце для іконки */
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
+  background-color: var(--extra-light-gray);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  color: var(--dark-blue);
+  width: 360px;
 }
 
 .icon {
-  position: absolute;
-  left: 10px;
-  color: #888;
+  width: 32px;
+  height: 32px;
 }
+
+.input {
+  background: transparent;
+  border: none;
+  width: 250px;
+  color: var(--dark-blue);
+  font-size: 16px;
+  outline: none;
+}
+
 .equipmentOptions,
 .vehicleTypes {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 8px;
 }
 
 .label {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  background-color: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
   width: 80px;
   height: 60px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: white;
-  font-size: 0.9em;
-  color: #333;
-  text-align: center;
-}
-
-.label input[type="checkbox"],
-.label input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-}
-
-.label input[type="checkbox"]:checked + .labelText,
-.label input[type="radio"]:checked + .labelText {
-  border-radius: 12px;
-  border: 1px solid #dadde1;
-  
 }
 
 .labelText {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  font-weight: 500;
+  line-height: 1.5;
+  font-size: 16px;
+  color: var(--dark-blue);
+}
+
+.selected {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
 }
 
 .searchButton {
-  width: 100%;
-  padding: 12px;
-  background-color: #e44848;
-  color: white;
+  padding: 16px 60px;
+  background-color: var(--red);
+  color: var(--white);
   border: none;
-  border-radius: 8px;
+  border-radius: 200px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 0.9em;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
 }
 
 .searchButton:hover {
-  background-color: #d81b60;
+  background-color: var(--dark-red);
 }
