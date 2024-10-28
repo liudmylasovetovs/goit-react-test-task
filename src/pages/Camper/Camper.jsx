@@ -14,8 +14,7 @@ const Camper = () => {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("features");
 
-  useEffect((e) => {
-    e.preventDefault();
+  useEffect(() => {
     const fetchCamper = async () => {
       if (!id) {
         return;
