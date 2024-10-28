@@ -10,16 +10,17 @@ const Catalog = () => {
   const dispatch = useDispatch();
   const { campers, status, page, error } = useSelector((state) => state.campers);
   const [filteredCampers, setFilteredCampers] = useState([]);
-
   const [displayCount, setDisplayCount] = useState(4);
 
   useEffect(() => {
-    dispatch(fetchCampers(page));
+    if (page === 1) {
+      dispatch(fetchCampers(page));
+    }
   }, [dispatch, page]);
 
   useEffect(() => {
     if (campers.length > 0) {
-      setFilteredCampers(campers);
+      setFilteredCampers((prevCampers) => [...prevCampers, ...campers]);
     }
   }, [campers]);
 
@@ -28,13 +29,11 @@ const Catalog = () => {
       const matchLocation = filters.location
         ? camper.location && camper.location.includes(filters.location)
         : true;
-
       const matchAC = filters.AC ? camper.AC === true : true;
       const matchAutomatic = filters.Automatic ? camper.transmission === 'automatic' : true;
       const matchKitchen = filters.Kitchen ? camper.kitchen === true : true;
       const matchTV = filters.TV ? camper.TV === true : true;
       const matchBathroom = filters.Bathroom ? camper.bathroom === true : true;
-
       const matchVehicleType = filters.vehicleType
         ? camper.form === filters.vehicleType
         : true;
@@ -60,7 +59,7 @@ const Catalog = () => {
   };
 
   const renderContent = () => {
-    if (status === 'loading') {
+    if (status === 'loading' && campers.length === 0) {
       return <Loader />;
     }
 
