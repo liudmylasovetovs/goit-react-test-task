@@ -41,7 +41,7 @@ align-items: flex-start;
     color: var(--dark-blue);
     line-height: 1.5;
     margin-left: 16px;
-}
+   }
 
 .rating {
     display: flex;
