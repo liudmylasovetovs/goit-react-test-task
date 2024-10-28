@@ -1,58 +1,71 @@
+
 .review {
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 12px;
     margin-bottom: 24px;
+    
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
 }
 
 .avatarContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: var(--extra-light-gray);
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: 600;
     font-weight: bold;
     color: var(--red);
 }
 
-.content {
-    flex: 1;
-}
-
-.header {
+.info {
     display: flex;
-    align-items: center;
-    gap: 12px;
-
+    flex-direction: column;
 }
 
-.name {
+.reviewerName {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
+    line-height: 1.5;
     color: var(--dark-blue);
+    margin: 0;
 }
 
 .rating {
     display: flex;
     align-items: center;
-    margin-left: auto;
+    
 }
 
 .emptyStar {
     font-size: 16px;
-    color: var(--light-gray);
+    color: var(--extra-light-gray);
 }
 
 .filledStar {
     color: var(--yellow);
+    font-size: 16px;
+}
+.commentContainer {
+    margin: 0;
 }
 
 .comment {
-    font-size: 14px;
+    font-size: 16px;
     color: var(--gray-blue);
-    margin-top: 8px;
     line-height: 1.5;
+    margin: 0;
 }

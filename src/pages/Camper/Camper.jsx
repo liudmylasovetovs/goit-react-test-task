@@ -6,7 +6,7 @@ import Loader from "../../components/Loader/Loader";
 import Features from "../../components/Features/Features";
 import Reviews from "../../components/Reviews/Reviews";
 import BookingForm from "../../components/BookingForm/BookingForm";
-import { BsStarFill } from "react-icons/bs";
+import { BsStarFill, BsMap } from "react-icons/bs";
 
 const Camper = () => {
   const { id } = useParams();
@@ -51,7 +51,7 @@ const Camper = () => {
             <BsStarFill className={styles.star} />
             {camper.rating} ({camper.reviews.length} Reviews)
           </span>
-          <span>{camper.location}</span>
+          <span className={styles.location}><BsMap/>{camper.location}</span>
         </div>
         <p className={styles.price}>
           €{camper.price.toFixed(2).replace(".", ",")}
@@ -93,6 +93,9 @@ const Camper = () => {
           Reviews
         </button>
       </div>
+      <svg className={styles.svgLine}>
+        <use href="../../assets/divider.svg" />
+      </svg>
 
       <div className={styles.featuresAndBooking}>
         {activeTab === "features" ? (

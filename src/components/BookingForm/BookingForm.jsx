@@ -15,6 +15,7 @@ const BookingForm = () => {
   return (
     <form className={styles.bookingForm} onSubmit={handleSubmit}>
       <h2>Book your campervan now</h2>
+      <p>Stay connected! We are always ready to help you.</p>
       <input
         type="text"
         placeholder="Name*"

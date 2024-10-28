@@ -53,7 +53,7 @@ const CamperCard = ({ camper }) => {
       </div>
 
       <div className={styles.details}>
-        <h3>{camper.name}</h3>
+        <h3 className={styles.camperName}>{camper.name}</h3>
 
         <div className={styles.locationAndRating}>
           {camper.rating && (
@@ -64,7 +64,7 @@ const CamperCard = ({ camper }) => {
               </span>
             </div>
           )}
-          <p>
+          <p className={styles.location}>
             <BsMap /> {camper.location}
           </p>
         </div>
@@ -75,7 +75,7 @@ const CamperCard = ({ camper }) => {
           {features.map((feature, index) => (
             <div key={index} className={styles.feature}>
               {feature.icon}
-              <span>{feature.name}</span>
+              <span className={styles.featureName}>{feature.name}</span>
             </div>
           ))}
         </div>

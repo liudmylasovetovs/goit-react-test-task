@@ -1,5 +1,15 @@
 import { useSelector } from "react-redux";
-import { BsMap, BsWind, BsDiagram3, BsCupHot, BsTv, BsDroplet, BsGrid1X2, BsGrid, BsGrid3X3Gap } from "react-icons/bs";
+import {
+  BsMap,
+  BsWind,
+  BsDiagram3,
+  BsCupHot,
+  BsTv,
+  BsDroplet,
+  BsGrid1X2,
+  BsGrid,
+  BsGrid3X3Gap,
+} from "react-icons/bs";
 import styles from "./Sidebar.module.css";
 import { useState } from "react";
 
@@ -40,8 +50,11 @@ const Sidebar = ({ onSearch }) => {
           className={styles.input}
         />
       </div>
-
+      <p className={styles.filterTitle}>Filters</p>
       <h3 className={styles.heading}>Vehicle Equipment</h3>
+      <svg className={styles.svgLine}>
+        <use href="../../assets/divider.svg" />
+      </svg>
       <div className={styles.equipmentOptions}>
         {[
           { name: "AC", icon: <BsWind /> },
@@ -69,6 +82,9 @@ const Sidebar = ({ onSearch }) => {
       </div>
 
       <h3 className={styles.heading}>Vehicle Type</h3>
+      <svg className={styles.svgLine}>
+        <use href="../../assets/divider.svg" />
+      </svg>
       <div className={styles.vehicleTypes}>
         {[
           { name: "Van", icon: <BsGrid1X2 /> },

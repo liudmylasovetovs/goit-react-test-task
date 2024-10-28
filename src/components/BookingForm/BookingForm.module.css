@@ -1,68 +1,61 @@
 .bookingForm {
-    flex: 1;
-    padding: 20px;
-    background-color: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  padding: 44px;
+  background-color: var(--white);
+  border-radius: 10px;
+  border: 1px solid var(--light-gray);
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.bookingForm h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--dark-blue);
+.bookingForm h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--dark-blue);
 }
 
 .bookingForm p {
-    font-size: 14px;
-    color: var(--gray-blue);
-    margin-bottom: 20px;
+  font-size: 14px;
+  color: var(--blue-gray);
+  margin-bottom: 24px;
 }
 
 .bookingForm input,
 .bookingForm textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
-    border-radius: 8px;
-    background-color: var(--extra-light-gray);
-    font-size: 16px;
-    color: var(--gray-blue);
-    box-sizing: border-box;
-    border: none;
+  width: 100%;
+  padding: 18px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background-color: var(--extra-light-gray);
+  font-size: 16px;
+  color: var(--blue-gray);
+  box-sizing: border-box;
+  border: none;
+  margin-bottom: 14px;
 }
 
 .bookingForm input[type="date"] {
-    padding: 10px;
+  padding: 18px;
 }
 
 .bookingForm button {
-    padding: 16px 60px;
-    background-color: var(--red);
-    color: var(--white);
-    border: none;
-    border-radius: 200px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    display: block;
-   
-    margin-left: auto;
-    
-    margin-right: auto;
-    
+  padding: 16px 60px;
+  background-color: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 200px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .bookingForm button:hover {
-    background-color: var(--dark-red);
+  background-color: var(--dark-red);
 }
-
-@media (max-width: 768px) {
-    .bookingForm {
-        margin-top: 20px;
-    }
-}
-
