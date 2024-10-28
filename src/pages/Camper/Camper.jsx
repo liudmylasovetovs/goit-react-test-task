@@ -1,17 +1,18 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import styles from './Camper.module.css';
-import Loader from '../../components/Loader/Loader';
-import Features from '../../components/Features/Features';
-import Reviews from '../../components/Reviews/Reviews';
-import BookingForm from '../../components/BookingForm/BookingForm';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import styles from "./Camper.module.css";
+import Loader from "../../components/Loader/Loader";
+import Features from "../../components/Features/Features";
+import Reviews from "../../components/Reviews/Reviews";
+import BookingForm from "../../components/BookingForm/BookingForm";
+import { BsStarFill } from "react-icons/bs";
 
 const Camper = () => {
   const { id } = useParams();
   const [camper, setCamper] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState('features');
+  const [activeTab, setActiveTab] = useState("features");
 
   useEffect(() => {
     const fetchCamper = async () => {
@@ -19,10 +20,12 @@ const Camper = () => {
         return;
       }
       try {
-        const response = await axios.get(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`);
+        const response = await axios.get(
+          `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`
+        );
         setCamper(response.data);
       } catch (error) {
-        console.error('Error fetching camper data:', error);
+        console.error("Error fetching camper data:", error);
       } finally {
         setLoading(false);
       }
@@ -45,17 +48,25 @@ const Camper = () => {
         <h1 className={styles.camperName}>{camper.name}</h1>
         <div className={styles.camperDetails}>
           <span className={styles.reviews}>
+            <BsStarFill className={styles.star} />
             {camper.rating} ({camper.reviews.length} Reviews)
           </span>
           <span>{camper.location}</span>
         </div>
-        <p className={styles.price}>€{camper.price.toFixed(2).replace('.', ',')}</p>
+        <p className={styles.price}>
+          €{camper.price.toFixed(2).replace(".", ",")}
+        </p>
       </div>
 
       <div className={styles.gallery}>
         {camper.gallery && camper.gallery.length > 0 ? (
           camper.gallery.map((image, index) => (
-            <img key={index} src={image.original} alt={`${camper.name} image ${index + 1}`} className={styles.image} />
+            <img
+              key={index}
+              src={image.original}
+              alt={`${camper.name} image ${index + 1}`}
+              className={styles.image}
+            />
           ))
         ) : (
           <p>No images available.</p>
@@ -66,42 +77,45 @@ const Camper = () => {
 
       <div className={styles.tabs}>
         <button
-          className={`${styles.tabButton} ${activeTab === 'features' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('features')}
+          className={`${styles.tabButton} ${
+            activeTab === "features" ? styles.activeTab : ""
+          }`}
+          onClick={() => setActiveTab("features")}
         >
           Features
         </button>
         <button
-          className={`${styles.tabButton} ${activeTab === 'reviews' ? styles.activeTab : ''}`}
-          onClick={() => setActiveTab('reviews')}
+          className={`${styles.tabButton} ${
+            activeTab === "reviews" ? styles.activeTab : ""
+          }`}
+          onClick={() => setActiveTab("reviews")}
         >
           Reviews
         </button>
       </div>
 
-      {activeTab === 'features' ? (
-        <div className={styles.features}>
-          <Features camper={camper} />
-        </div>
-      ) : (
-        <div className={styles.features}>
-          <h2>Reviews</h2>
-          {camper.reviews && camper.reviews.length > 0 ? (
-            camper.reviews.map((review, index) => (
-              <Reviews
-                key={index}
-                reviewerName={review.reviewer_name}
-                reviewerRating={review.reviewer_rating}
-                comment={review.comment}
-              />
-            ))
-          ) : (
-            <p>No reviews available.</p>
-          )}
-        </div>
-      )}
+      <div className={styles.featuresAndBooking}>
+        {activeTab === "features" ? (
+          <div className={styles.features}>
+            <Features camper={camper} />
+          </div>
+        ) : (
+          <div className={styles.features}>
+            {camper.reviews && camper.reviews.length > 0 ? (
+              camper.reviews.map((review, index) => (
+                <Reviews
+                  key={index}
+                  reviewerName={review.reviewer_name}
+                  reviewerRating={review.reviewer_rating}
+                  comment={review.comment}
+                />
+              ))
+            ) : (
+              <p>No reviews available.</p>
+            )}
+          </div>
+        )}
 
-      <div className={styles.bookingForm}>
         <BookingForm camperId={id} />
       </div>
     </div>

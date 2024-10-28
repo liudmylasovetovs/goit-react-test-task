@@ -1,39 +1,35 @@
 .review {
     display: flex;
     align-items: flex-start;
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    margin-bottom: 24px;
 }
 
-.avatar {
-    width: 40px;
-    height: 40px;
-    background-color: var(--extra-light-gray);
-    border-radius: 50%;
+.avatarContainer {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--extra-light-gray);
     font-size: 18px;
-    font-weight: 600;
-    color: var(--dark-blue);
-    margin-right: 16px;
+    font-weight: bold;
+    color: var(--red);
 }
 
-.reviewContent {
+.content {
     flex: 1;
 }
 
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
+    gap: 12px;
+
 }
 
-.header h3 {
+.name {
     font-size: 16px;
     font-weight: 600;
     color: var(--dark-blue);
@@ -41,16 +37,22 @@
 
 .rating {
     display: flex;
-    gap: 4px;
+    align-items: center;
+    margin-left: auto;
 }
 
 .star {
-    color: var(--yellow);
     font-size: 16px;
+    color: var(--light-gray);
 }
 
-.reviewContent p {
+.filledStar {
+    color: var(--yellow);
+}
+
+.comment {
     font-size: 14px;
     color: var(--gray-blue);
-    line-height: 1.6;
+    margin-top: 8px;
+    line-height: 1.5;
 }

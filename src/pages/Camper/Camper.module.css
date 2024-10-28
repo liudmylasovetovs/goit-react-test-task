@@ -21,7 +21,9 @@
     object-fit: cover;
     border-radius: 8px;
 }
-
+.star {
+    color: var(--yellow);
+}
 
 .tabs {
     display: flex;
@@ -68,7 +70,7 @@
     padding: 20px;
     background-color: var(--white);
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
 }
 
 .bookingForm h3 {
