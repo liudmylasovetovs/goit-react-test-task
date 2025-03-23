@@ -33,7 +33,7 @@ const Features = ({ camper }) => {
       <div className={styles.vehicleDetails}>
         <h3>Vehicle details</h3>
         <svg className={styles.svgLine}>
-        <use href="../../assets/divider.svg" />
+        <use href="/assets/divider.svg" />
       </svg>
         <ul>
           {vehicleDetails.map((detail, index) => (
