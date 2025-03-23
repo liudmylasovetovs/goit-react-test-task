@@ -1,8 +1,9 @@
 {
-    "cleanUrls": true,
-    "redirects": [
-      { "source": "/catalog", "destination": "/", "statusCode": 200 },
-      { "source": "/catalog/:match*", "destination": "/", "statusCode": 200 }
+    "builds": [
+      { "src": "index.html", "use": "@vercel/static" }
+    ],
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/index.html" }
     ]
   }
   
