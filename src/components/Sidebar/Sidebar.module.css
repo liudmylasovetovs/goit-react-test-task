@@ -63,47 +63,47 @@
   outline: none;
 }
 
-.equipmentOptions{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 24px;
-}
-
+.equipmentOptions,
 .vehicleTypes {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 32px;
-  margin-bottom: 24px;
-  }
+   gap: 16px;
+  margin-top: 24px;
+}
 
 .label {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
-  background-color: var(--white);
-  border: 1px solid var(--light-gray);
-  border-radius: 16px;
+  align-items: center;
+  width: 112px;        
+  height: 96px;
+
+  padding: 12px;
+  border: 1px solid #101828;
+  border-radius: 12px;
+  background-color: #ffffff;
+
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
-  width: 80px;
-  height: 60px;
-  
+  box-sizing: border-box;
 }
+
 
 .labelText {
   font-weight: 500;
-  line-height: 1.5;
   font-size: 16px;
-  color: var(--dark-blue);
+  line-height: 1.5;
+  color: #101828; /* завжди темний текст */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 
 .selected {
-  border-color: var(--red);
-  color: var(--red);
+  border-color: var(--red); /* тільки рамка червона */
 }
 
 input[type="checkbox"],
