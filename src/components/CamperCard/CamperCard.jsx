@@ -7,6 +7,7 @@ import {
   BsDroplet,
   BsMap,
   BsStarFill,
+  BsHeartFill,
   BsHeart,
 } from "react-icons/bs";
 import { BsDiagram3, BsFuelPump, BsBroadcastPin } from "react-icons/bs";
