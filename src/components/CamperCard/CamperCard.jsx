@@ -11,10 +11,17 @@ import {
   BsHeart,
 } from "react-icons/bs";
 import { BsDiagram3, BsFuelPump, BsBroadcastPin } from "react-icons/bs";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleFavorite } from "../../store/favoritesSlice";
 
 const CamperCard = ({ camper }) => {
-  const [isFavorite, setIsFavorite] = useState(false); // State for managing favorite status
+  const dispatch = useDispatch();
+  const favoriteIds = useSelector((state) => state.favorites.ids);
+  const isFavorite = favoriteIds.includes(camper.id);
+
+  const handleToggleFavorite = () => {
+    dispatch(toggleFavorite(camper.id));
+  };
 
   const features = [
     camper.transmission === "automatic" && {
@@ -29,10 +36,6 @@ const CamperCard = ({ camper }) => {
     camper.TV && { name: "TV", icon: <BsTv /> },
   ].filter(Boolean);
 
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite); // Toggle favorite status
-  };
-
   return (
     <div className={styles.camperCard}>
       {camper.gallery && camper.gallery.length > 0 && (
@@ -43,7 +46,7 @@ const CamperCard = ({ camper }) => {
         />
       )}
 
-      <div className={styles.favoriteIcon} onClick={toggleFavorite}>
+      <div className={styles.favoriteIcon} onClick={handleToggleFavorite}>
         {isFavorite ? (
           <BsHeartFill className={styles.filledHeart} />
         ) : (
@@ -87,7 +90,9 @@ const CamperCard = ({ camper }) => {
         </NavLink>
       </div>
 
-      <div className={styles.price}>€{camper.price.toFixed(2).replace(".", ",")}</div>
+      <div className={styles.price}>
+        €{camper.price.toFixed(2).replace(".", ",")}
+      </div>
     </div>
   );
 };
