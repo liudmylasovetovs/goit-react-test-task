@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 100px;
-  
+  padding-left: 0;
 }
 
 .feature {

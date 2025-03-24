@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import styles from './Features.module.css';
 import {
-  BsGearFill,
+  BsDiagram3,
   BsWind,
   BsFuelPump,
   BsCupHot,
@@ -19,7 +19,7 @@ const Features = () => {
   const { camper } = outletContext;
 
   const features = [
-    camper.transmission === "automatic" && { name: "Automatic", icon: <BsGearFill /> },
+    camper.transmission === "automatic" && { name: "Automatic", icon: <BsDiagram3 /> },
     camper.AC && { name: "AC", icon: <BsWind /> },
     camper.engine === "petrol" && { name: "Petrol", icon: <BsFuelPump /> },
     camper.kitchen && { name: "Kitchen", icon: <BsCupHot /> },
