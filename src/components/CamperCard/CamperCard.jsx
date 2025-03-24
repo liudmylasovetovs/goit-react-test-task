@@ -87,7 +87,7 @@ const CamperCard = ({ camper }) => {
         </NavLink>
       </div>
 
-      <div className={styles.price}>€{camper.price}</div>
+      <div className={styles.price}>€{camper.price.toFixed(2).replace(".", ",")}</div>
     </div>
   );
 };
