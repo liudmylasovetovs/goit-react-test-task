@@ -87,20 +87,24 @@ const Sidebar = ({ onSearch }) => {
       </svg>
       <div className={styles.vehicleTypes}>
         {[
-          { name: "Van", icon: <BsGrid1X2 /> },
-          { name: "Fully Integrated", icon: <BsGrid /> },
-          { name: "Alcove", icon: <BsGrid3X3Gap /> },
-        ].map(({ name, icon }) => (
+          { name: "Van", icon: <BsGrid1X2 />, value: "panelTruck" },
+          {
+            name: "Fully Integrated",
+            icon: <BsGrid />,
+            value: "fullyIntegrated",
+          },
+          { name: "Alcove", icon: <BsGrid3X3Gap />, value: "alcove" },
+        ].map(({ name, icon, value }) => (
           <label
-            key={name}
+            key={value}
             className={`${styles.label} ${
-              selectedFilters.vehicleType === name ? styles.selected : ""
+              selectedFilters.vehicleType === value ? styles.selected : ""
             }`}
           >
             <input
               type="radio"
-              checked={selectedFilters.vehicleType === name}
-              onChange={() => handleVehicleTypeChange(name)}
+              checked={selectedFilters.vehicleType === value}
+              onChange={() => handleVehicleTypeChange(value)}
             />
             <span className={styles.labelText}>
               {icon} {name}
