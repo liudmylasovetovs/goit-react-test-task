@@ -8,9 +8,8 @@ import {
   BsMap,
   BsStarFill,
   BsHeart,
-  BsHeartFill,
 } from "react-icons/bs";
-import { BsGearFill, BsFuelPump, BsBroadcastPin } from "react-icons/bs";
+import { BsDiagram3, BsFuelPump, BsBroadcastPin } from "react-icons/bs";
 import { useState } from "react";
 
 const CamperCard = ({ camper }) => {
@@ -19,7 +18,7 @@ const CamperCard = ({ camper }) => {
   const features = [
     camper.transmission === "automatic" && {
       name: "Automatic",
-      icon: <BsGearFill />,
+      icon: <BsDiagram3 />,
     },
     camper.AC && { name: "AC", icon: <BsWind /> },
     camper.engine === "petrol" && { name: "Petrol", icon: <BsFuelPump /> },
