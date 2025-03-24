@@ -11,7 +11,6 @@ import {
 const Features = () => {
   const outletContext = useOutletContext();
 
-  // Додаткова перевірка, щоб не впасти, якщо camper ще не прийшов
   if (!outletContext || !outletContext.camper) {
     return <p>Loading features...</p>;
   }

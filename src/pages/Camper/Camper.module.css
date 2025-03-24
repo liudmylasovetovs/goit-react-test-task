@@ -45,12 +45,12 @@
 }
 
 .ratingValue {
-  color: var(--dark-blue); /* або #101828 */
+  color: var(--dark-blue); 
   font-weight: 500;
 }
 
 .reviewCount {
-  color: var(--gray-blue); /* або #475467 */
+  color: var(--gray-blue); 
 }
 .starIcon {
     color: var(--yellow);

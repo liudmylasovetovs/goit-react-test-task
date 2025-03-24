@@ -37,7 +37,6 @@ const Camper = () => {
     fetchCamper();
   }, [id]);
 
-  // Автоматичний редірект на "features"
   useEffect(() => {
     if (camper && location.pathname === `/catalog/${id}`) {
       navigate("features", { replace: true });
