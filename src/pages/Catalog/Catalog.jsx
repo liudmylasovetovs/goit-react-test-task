@@ -27,7 +27,8 @@ const Catalog = () => {
   const handleSearch = (filters) => {
     const filtered = campers.filter((camper) => {
       const matchLocation = filters.location
-        ? camper.location && camper.location.includes(filters.location)
+        ? camper.location &&
+          camper.location.toLowerCase().includes(filters.location.toLowerCase())
         : true;
       const matchAC = filters.AC ? camper.AC === true : true;
       const matchAutomatic = filters.Automatic ? camper.transmission === 'automatic' : true;
@@ -35,9 +36,9 @@ const Catalog = () => {
       const matchTV = filters.TV ? camper.TV === true : true;
       const matchBathroom = filters.Bathroom ? camper.bathroom === true : true;
       const matchVehicleType = filters.vehicleType
-        ? camper.form === filters.vehicleType
+        ? camper.form.toLowerCase() === filters.vehicleType.toLowerCase()
         : true;
-
+  
       return (
         matchLocation &&
         matchAC &&
@@ -48,10 +49,9 @@ const Catalog = () => {
         matchVehicleType
       );
     });
-
+  
     setFilteredCampers(filtered);
   };
-
   const handleLoadMore = (e) => {
     e.preventDefault();
     dispatch(loadMore());
