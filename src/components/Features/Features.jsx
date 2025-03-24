@@ -1,7 +1,23 @@
+import { useOutletContext } from "react-router-dom";
 import styles from './Features.module.css';
-import { BsGearFill, BsWind, BsFuelPump, BsCupHot, BsBroadcastPin } from 'react-icons/bs';
+import {
+  BsGearFill,
+  BsWind,
+  BsFuelPump,
+  BsCupHot,
+  BsBroadcastPin
+} from 'react-icons/bs';
 
-const Features = ({ camper }) => {
+const Features = () => {
+  const outletContext = useOutletContext();
+
+  // Додаткова перевірка, щоб не впасти, якщо camper ще не прийшов
+  if (!outletContext || !outletContext.camper) {
+    return <p>Loading features...</p>;
+  }
+
+  const { camper } = outletContext;
+
   const features = [
     camper.transmission === "automatic" && { name: "Automatic", icon: <BsGearFill /> },
     camper.AC && { name: "AC", icon: <BsWind /> },
@@ -33,8 +49,8 @@ const Features = ({ camper }) => {
       <div className={styles.vehicleDetails}>
         <h3>Vehicle details</h3>
         <svg className={styles.svgLine}>
-        <use href="/assets/divider.svg" />
-      </svg>
+          <use href="/assets/divider.svg" />
+        </svg>
         <ul>
           {vehicleDetails.map((detail, index) => (
             <li key={index} className={styles.detailItem}>

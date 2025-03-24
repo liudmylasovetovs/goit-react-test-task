@@ -1,18 +1,23 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {
+  useParams,
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import axios from "axios";
 import styles from "./Camper.module.css";
 import Loader from "../../components/Loader/Loader";
-import Features from "../../components/Features/Features";
-import Reviews from "../../components/Reviews/Reviews";
 import BookingForm from "../../components/BookingForm/BookingForm";
 import { BsStarFill, BsMap } from "react-icons/bs";
 
 const Camper = () => {
   const { id } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [camper, setCamper] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState("features");
 
   useEffect(() => {
     const fetchCamper = async () => {
@@ -21,7 +26,6 @@ const Camper = () => {
         const response = await axios.get(
           `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`
         );
-        console.log("Fetched camper:", response.data);
         setCamper(response.data);
       } catch (error) {
         console.error("Error fetching camper data:", error);
@@ -33,8 +37,15 @@ const Camper = () => {
     fetchCamper();
   }, [id]);
 
+  // Автоматичний редірект на "features"
+  useEffect(() => {
+    if (camper && location.pathname === `/catalog/${id}`) {
+      navigate("features", { replace: true });
+    }
+  }, [camper, location.pathname, id, navigate]);
+
   if (loading) return <Loader />;
-  if (!camper) return <p>Camper not found or error loading data.</p>;
+  if (!camper) return <p>Camper not found.</p>;
 
   return (
     <div className={styles.camperContainer}>
@@ -43,7 +54,7 @@ const Camper = () => {
         <div className={styles.camperDetails}>
           <span className={styles.reviews}>
             <BsStarFill className={styles.star} />
-            {camper.rating} ({camper.reviews?.length || 0} Reviews)
+            {camper.rating} ({camper.reviews.length} Reviews)
           </span>
           <span className={styles.location}>
             <BsMap />
@@ -51,22 +62,20 @@ const Camper = () => {
           </span>
         </div>
         <p className={styles.price}>
-          €{camper.price?.toFixed(2).replace(".", ",")}
+          €{camper.price.toFixed(2).replace(".", ",")}
         </p>
       </div>
 
       <div className={styles.gallery}>
-        {Array.isArray(camper.gallery) && camper.gallery.length > 0 ? (
-          camper.gallery.map((image, index) =>
-            image?.original ? (
-              <img
-                key={index}
-                src={image.original}
-                alt={`${camper.name} image ${index + 1}`}
-                className={styles.image}
-              />
-            ) : null
-          )
+        {camper.gallery && camper.gallery.length > 0 ? (
+          camper.gallery.map((image, index) => (
+            <img
+              key={index}
+              src={image.original}
+              alt={`${camper.name} image ${index + 1}`}
+              className={styles.image}
+            />
+          ))
         ) : (
           <p>No images available.</p>
         )}
@@ -75,50 +84,33 @@ const Camper = () => {
       <p className={styles.description}>{camper.description}</p>
 
       <div className={styles.tabs}>
-        <button
+        <Link
+          to="features"
           className={`${styles.tabButton} ${
-            activeTab === "features" ? styles.activeTab : ""
+            location.pathname.includes("features") ? styles.activeTab : ""
           }`}
-          onClick={() => setActiveTab("features")}
         >
           Features
-        </button>
-        <button
+        </Link>
+        <Link
+          to="reviews"
           className={`${styles.tabButton} ${
-            activeTab === "reviews" ? styles.activeTab : ""
+            location.pathname.includes("reviews") ? styles.activeTab : ""
           }`}
-          onClick={() => setActiveTab("reviews")}
         >
           Reviews
-        </button>
+        </Link>
       </div>
-
 
       <svg className={styles.svgLine}>
         <use href="../../assets/divider.svg" />
       </svg>
 
       <div className={styles.featuresAndBooking}>
-        {activeTab === "features" ? (
-          <div className={styles.features}>
-            <Features camper={camper} />
-          </div>
-        ) : (
-          <div className={styles.features}>
-            {Array.isArray(camper.reviews) && camper.reviews.length > 0 ? (
-              camper.reviews.map((review, index) => (
-                <Reviews
-                  key={index}
-                  reviewerName={review.reviewer_name}
-                  reviewerRating={review.reviewer_rating}
-                  comment={review.comment}
-                />
-              ))
-            ) : (
-              <p>No reviews available.</p>
-            )}
-          </div>
-        )}
+        <div className={styles.features}>
+          <Outlet context={{ camper }} />
+        </div>
+
         <BookingForm camperId={id} />
       </div>
     </div>
