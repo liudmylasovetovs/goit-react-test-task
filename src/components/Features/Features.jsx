@@ -37,14 +37,14 @@ const Features = () => {
 
   return (
     <div className={styles.featuresContainer}>
-      <div className={styles.features}>
+      <ul className={styles.features}>
         {features.map((feature, index) => (
-          <div key={index} className={styles.feature}>
+          <li key={index} className={styles.feature}>
             {feature.icon}
             <span>{feature.name}</span>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
 
       <div className={styles.vehicleDetails}>
         <h3>Vehicle details</h3>
