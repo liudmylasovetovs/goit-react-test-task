@@ -5,16 +5,16 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
+
   width: 400px;
 }
 
-.location{
+.location {
   font-size: 16px;
-    font-weight: 400;
-    color: var(--grey-blue);
-    
-    line-height: 1.5;
+  font-weight: 400;
+  color: var(--grey-blue);
+
+  line-height: 1.5;
 }
 .heading {
   font-size: 20px;
@@ -29,7 +29,7 @@
   font-weight: 500;
   color: var(--grey-blue);
   line-height: 1.5;
-   }
+}
 
 .inputContainer {
   display: flex;
@@ -37,17 +37,16 @@
   background-color: var(--extra-light-gray);
   border-radius: 12px;
   padding: 18px 20px;
-    color: var(--dark-blue);
+  color: var(--dark-blue);
   width: 360px;
   margin-bottom: 40px;
- }
+}
 
- .svgLine{
+.svgLine {
   width: 100%;
   height: 1px;
   background-color: var(--light-gray);
-  
- }
+}
 
 .icon {
   width: 20px;
@@ -67,7 +66,7 @@
 .vehicleTypes {
   display: flex;
   flex-wrap: wrap;
-   gap: 16px;
+  gap: 16px;
   margin-top: 24px;
 }
 
@@ -76,7 +75,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 112px;        
+  width: 112px;
   height: 96px;
 
   padding: 12px;
@@ -90,12 +89,11 @@
   box-sizing: border-box;
 }
 
-
 .labelText {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: #101828; /* завжди темний текст */
+  color: #101828;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -103,14 +101,13 @@
 }
 
 .selected {
-  border-color: var(--red); /* тільки рамка червона */
-}
+  border-color: var(--red);
 
-input[type="checkbox"],
-input[type="radio"] {
-  display: none;
+  input[type="checkbox"],
+  input[type="radio"] {
+    display: none;
+  }
 }
-
 .searchButton {
   padding: 16px 60px;
   background-color: var(--red);

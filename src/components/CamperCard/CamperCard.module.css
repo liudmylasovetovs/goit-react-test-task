@@ -150,3 +150,19 @@
   background-color: var(--dark-red);
 }
 
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ratingValue {
+  color: var(--dark-blue); 
+  font-weight: 500;
+}
+
+.reviewCount {
+  color: var(--gray-blue); 
+}

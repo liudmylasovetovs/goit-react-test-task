@@ -43,7 +43,6 @@ const CamperCard = ({ camper }) => {
         />
       )}
 
-      
       <div className={styles.favoriteIcon} onClick={toggleFavorite}>
         {isFavorite ? (
           <BsHeartFill className={styles.filledHeart} />
@@ -59,8 +58,11 @@ const CamperCard = ({ camper }) => {
           {camper.rating && (
             <div className={styles.rating}>
               <BsStarFill className={styles.starIcon} />
-              <span>
-                {camper.rating.toFixed(1)} ({camper.reviews.length} Reviews)
+              <span className={styles.ratingValue}>
+                {camper.rating.toFixed(1)}
+              </span>
+              <span className={styles.reviewCount}>
+                ({camper.reviews.length} Reviews)
               </span>
             </div>
           )}

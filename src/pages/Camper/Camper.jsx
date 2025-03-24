@@ -51,10 +51,11 @@ const Camper = () => {
     <div className={styles.camperContainer}>
       <div className={styles.header}>
         <h1 className={styles.camperName}>{camper.name}</h1>
-        <div className={styles.camperDetails}>
-          <span className={styles.reviews}>
-            <BsStarFill className={styles.star} />
-            {camper.rating} ({camper.reviews.length} Reviews)
+        <div className={styles.rating}>
+          <BsStarFill className={styles.starIcon} />
+          <span className={styles.ratingValue}>{camper.rating.toFixed(1)}</span>
+          <span className={styles.reviewCount}>
+            ({camper.reviews.length} Reviews)
           </span>
           <span className={styles.location}>
             <BsMap />
